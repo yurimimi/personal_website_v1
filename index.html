@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name"viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal website</title>
+    <link rel="stylesheet" href="./styles.css">
+
+    <script src="./utils/json_to_html/json-to-html.js" type="text/javascript"></script>
+    <script src="./funcs.js" type="text/javascript"></script>
+    <script src="./vars.js" type="text/javascript"></script>
+    <script defer src="./main.js" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <form id="language-select-section">
+      <label for="language-select">lang:</label>
+      <select name="languages" id="language-select"
+              onchange="handleLanguageSelect(this)">
+        <option value="en-US">en</option>
+        <option value="ja">jp</option>
+      </select>
+    </form>
+
+    <section id="profile">
+      <img width="128" src="./assets/rumia.gif" alt="pic" />
+      <h1>Yuri Klar</h1>
+      <p>
+        aka
+        <span id="aka">yurimimi</span>,
+        <span id="aka">mimeyu</span>,
+        <span id="aka">yuyu</span>,
+        etc.
+      </p>
+    </section> 
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        Unemployed programmer streaming live coding, aspiring to relocate to Japan.
+        Currently engaging in self&#8209;study on web development and networking topics.
+      </p>
+    </section> 
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ol>
+        <li>this website</li>
+        <li>another website (dropped)</li>
+        <li>another website (dropped)</li>
+        <li>and much more..!</li>
+      </ol>
+    </section> 
+
+    <section id="socials">
+      <h2>Socials</h2>
+        <ul>
+          <li>Email: <a href="mailto:juri.klar@outlook.com">juri.klar@outlook.com</a></li>
+          <li><a href="https://yurimimi.github.io">Website (this)</a></li>
+          <li><a href="https://github.com/yurimimi">GitHub</a></li>
+          <li><a href="https://twitter.com/jurimime">Twitter</a></li>
+          <li><a href="https://www.twitch.tv/mimeyu">Twitch</a></li>
+          <li><a href="https://discord.com/users/1135197622580293692">Discord</a></li>
+        </ul>
+    </section> 
+  </body>
+</html>

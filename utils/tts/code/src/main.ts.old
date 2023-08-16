@@ -1,0 +1,42 @@
+import say from "say";
+import readline from "readline";
+
+console.log("running TTS...");
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+let isSpeaking = false;
+
+process.stdin.on("keypress", (_, key) => {
+  if (key && key.name == "escape") {
+    console.log("that's correct");
+  }
+  if (key && key.name == "escape" && isSpeaking) {
+    console.log("Stopping current speech...");
+    say.stop();
+    isSpeaking = false;
+  }
+});
+
+function convertToSpeech() {
+  isSpeaking = false; // We don't speak now
+  rl.question("Enter text to convert to speech (or press Ctrl+C to exit): ", (text) => {
+    isSpeaking = true; // We do speak now
+    say.speak(text, "Mary", undefined, () => {
+      convertToSpeech();
+    });
+  });
+}
+
+// Start the initial conversion
+convertToSpeech();
+
+// Subscribe to SIGINT, so some of our code runs when Node gets that signal
+process.on("SIGINT", () => {
+  console.log("\nTTS exit!");
+  rl.close();
+  // process.exit(1);
+});

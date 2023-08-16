@@ -1,0 +1,157 @@
+:root {
+  /* SIZES */
+  /* 1080 -- default */
+  --body-m-w: 800px;
+  --body-s-w: 380px;
+  --body-xs-w: 375px;
+  --section-m-w: 380px;
+  --section-s-w: 370px;
+  /* GRID */
+  --align-left: 1 / 3;
+  --align-right: 3 / 5;
+
+  --put-1: 2 / 3;
+  --put-2: 2 / 3;
+  --put-3: 3 / 4;
+  /* --put-3: ; */
+
+  box-sizing: border-box;
+  max-width: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 799px) {
+  :root {
+    --align-left: 2 / 4;
+    --align-right: 2 / 4;
+
+    --put-1: 2 / 3;
+    --put-2: 3 / 4;
+    --put-3: 4 / 5;
+    /* --put-3: ; */
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+
+  margin: 0 auto;
+  width: 50%;
+  min-height: 100%;
+  min-width: var(--body-m-w);
+
+	display: grid;
+	grid-template-columns: 1fr repeat(2, calc(var(--body-m-w)/4)) 1fr;
+
+  background-color: lightgray;
+
+  font-family: sans-serif;
+}
+
+@media (max-width: 799px) {
+  body {
+    margin: 0;
+    width: 100%;
+    min-width: var(--body-s-w);
+	  grid-template-columns: 1.25rem 1fr 1fr 1.25rem;
+  }
+}
+
+@media (max-width: 436px) {
+  body {
+    min-width: var(--body-xs-w);
+	  grid-template-columns: 2px 1fr 1fr 2px;
+  }
+}
+
+h1 {
+  font-size: 2.125rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+body > section {
+  margin: 0 1rem 1rem;
+  padding: 0.125rem 1rem 0 0.75rem ;
+  min-width: var(--section-s-w);
+
+  background: white;
+  border: 2px solid darkgray;
+  box-shadow: 6px 6px;
+}
+
+@media (max-width: 799px) {
+  body > section {
+    max-width: var(--section-s-w);
+    margin: 0 auto 1rem;
+  }
+}
+
+@media (max-width: 436px) {
+  body > section {
+    margin: 0 auto 10px;
+  }
+}
+
+ol,
+ul {
+  margin: 1rem 0;
+  padding-left: 1rem;
+}
+
+ol > li {
+  list-style-position: inside;
+}
+
+ul {
+  list-style: none;
+}
+
+#language-select-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  font-size: 14px;
+
+  transition: 400ms;
+  opacity: 40%;
+}
+
+#language-select-section:hover,
+#language-select-section:focus-within {
+  opacity: 100%;
+}
+
+#profile {
+  grid-row: 1;
+  grid-column: 2 / 4;
+  text-align: center;
+}
+
+#about {
+  grid-row: var(--put-1);
+  grid-column: var(--align-left);
+}
+
+#projects {
+  grid-row: var(--put-2);
+  grid-column: var(--align-right);
+}
+
+#socials {
+  grid-row: var(--put-3);
+  grid-column: var(--align-left);
+}
+
+#aka {
+  font-weight: 600;
+}
