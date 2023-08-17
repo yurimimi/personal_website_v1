@@ -1,15 +1,7 @@
-:root {
-  /* SIZES */
-  /* 1080 -- default */
-  --body-m-w: 800px;
-  --body-s-w: 380px;
-  --body-xs-w: 375px;
-  --section-m-w: 380px;
-  --section-s-w: 370px;
+html {
   /* GRID */
   --align-left: 1 / 3;
   --align-right: 3 / 5;
-
   --put-1: 2 / 3;
   --put-2: 2 / 3;
   --put-3: 3 / 4;
@@ -20,8 +12,8 @@
   scroll-behavior: smooth;
 }
 
-@media (max-width: 799px) {
-  :root {
+@media (max-width: 799px) and (orientation: portrait) {
+  html {
     --align-left: 2 / 4;
     --align-right: 2 / 4;
 
@@ -44,28 +36,28 @@ body {
   margin: 0 auto;
   width: 50%;
   min-height: 100%;
-  min-width: var(--body-m-w);
+  min-width: 800px;
 
 	display: grid;
-	grid-template-columns: 1fr repeat(2, calc(var(--body-m-w)/4)) 1fr;
+	grid-template-columns: 1fr 200px 200px 1fr;
 
   background-color: lightgray;
 
   font-family: sans-serif;
 }
 
-@media (max-width: 799px) {
+@media (max-width: 799px) and (orientation: portrait) {
   body {
     margin: 0;
     width: 100%;
-    min-width: var(--body-s-w);
+    min-width: 380px;
 	  grid-template-columns: 1.25rem 1fr 1fr 1.25rem;
   }
 }
 
-@media (max-width: 436px) {
+@media (max-width: 436px) and (orientation: portrait) {
   body {
-    min-width: var(--body-xs-w);
+    min-width: 375px;
 	  grid-template-columns: 2px 1fr 1fr 2px;
   }
 }
@@ -81,21 +73,21 @@ h2 {
 body > section {
   margin: 0 1rem 1rem;
   padding: 0.125rem 1rem 0 0.75rem ;
-  min-width: var(--section-s-w);
+  min-width: 370px;
 
   background: white;
   border: 2px solid darkgray;
   box-shadow: 6px 6px;
 }
 
-@media (max-width: 799px) {
+@media (max-width: 799px) and (orientation: portrait) {
   body > section {
-    max-width: var(--section-s-w);
+    max-width: 370px;
     margin: 0 auto 1rem;
   }
 }
 
-@media (max-width: 436px) {
+@media (max-width: 436px) and (orientation: portrait) {
   body > section {
     margin: 0 auto 10px;
   }
@@ -129,6 +121,28 @@ ul {
 #language-select-section:hover,
 #language-select-section:focus-within {
   opacity: 100%;
+}
+
+@media (max-width: 799px) and (orientation: portrait) {
+
+  #language-select-section {
+    top: 2px;
+    right: 4px;
+  }
+
+  #language-select-section > label {
+    display: none;
+  }
+
+  #language-select-section > select {
+    width: 3rem;
+    height: 2.25rem;
+
+    border: 2px solid lightgray;
+    border-radius: 0;
+
+    text-transform: uppercase;
+  }
 }
 
 #profile {
