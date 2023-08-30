@@ -56,7 +56,7 @@ function getNavigatorLanguage() {
 /**
  * Check for document's sections to locale sections number match
  */
-function checkSectionsNumberMatch(dcnt_sctns, lcl_sctns) {
+function checkSectionsNumberMatch(dcmt_sctns, lcl_sctns) {
   let ls = []
 
   for (let i = 0; i < arguments.length; i++) {
@@ -74,5 +74,5 @@ function checkSectionsNumberMatch(dcnt_sctns, lcl_sctns) {
 
   if (ls[0] !== ls[1])
     throw new Error(
-      "lengths doesn't match: " + ls[0] + "/" + ls[1])
+      "lengths don't match: " + ls[0] + "/" + ls[1])
 }
