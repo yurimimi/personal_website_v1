@@ -1,5 +1,6 @@
 /**
  * @todo block <script> element creation
+ * @todo check `onclick`s for it's content to be secure
  * @todo recognize paired and unpaired tags
  * @todo add more tags
  * @param content An array of nodes to be inserted in the section or
